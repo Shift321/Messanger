@@ -11,7 +11,7 @@ ADDR = (SERVER,PORT)
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 client.connect(ADDR)
 
-
+print(client.recv(2048).decode(FORMAT))
 def send(msg):
     message = msg.encode(FORMAT)
     msg_length = len(message)
