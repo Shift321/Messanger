@@ -5,7 +5,7 @@ HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
 DISCONNECT_MSG = "!DISCONNECT"
-SERVER = "192.168.56.1"
+SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER,PORT)
 
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -22,7 +22,7 @@ def send(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
-while True: 
+while True:
     message = input("Type your message-> ")
     send(message)
     if message == DISCONNECT_MSG:
